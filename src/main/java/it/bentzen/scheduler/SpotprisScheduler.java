@@ -30,7 +30,8 @@ public class SpotprisScheduler {
     @Scheduled(cron = "0 0 14 * * ?")
     void updateDaily() throws JsonProcessingException {
         String latest = externalAPI.getSpotPrices();
-        data.putAll(objectMapper.readValue(latest, new TypeReference<Map<String, Double>>() {}));
+        data.putAll(objectMapper.readValue(latest, new TypeReference<Map<String, Double>>() {
+        }));
         spotprisResource.receiveJson(data);
     }
 }

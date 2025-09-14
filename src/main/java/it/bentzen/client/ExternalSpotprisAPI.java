@@ -7,9 +7,8 @@ import jakarta.ws.rs.core.MediaType;
 import org.eclipse.microprofile.rest.client.inject.RegisterRestClient;
 
 
-@RegisterRestClient(configKey="external-api")
+@RegisterRestClient(configKey = "external-api")
 public interface ExternalSpotprisAPI {
-
     @GET
     @Produces(MediaType.TEXT_PLAIN)
     String getSpotPrices();

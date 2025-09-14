@@ -91,7 +91,8 @@ public class SpotprisResource {
     public Map<String, Double> getSpotprisData() throws JsonProcessingException {
         String latest = externalAPI.getSpotPrices();
         data.clear();
-        data.putAll(objectMapper.readValue(latest, new TypeReference<Map<String, Double>>() {}));
+        data.putAll(objectMapper.readValue(latest, new TypeReference<Map<String, Double>>() {
+        }));
         return data;
     }
 
