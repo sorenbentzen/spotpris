@@ -88,8 +88,8 @@ public class SpotprisResource {
     }
 
     @GET
-    @Path("/laveste-sum/{n}")
-    public Entry<Double, List<String>> findLavestePrisSumAfNPriserMedTid(Map<String, Double> priser, @PathParam("HeleTYimer") int heleTimer) {
+    @Path("/laveste-sum/{heleTimer}")
+    public Entry<Double, List<String>> findLavestePrisSumAfNPriserMedTid(Map<String, Double> priser, @PathParam("heleTimer") int heleTimer) {
         List<Entry<String, Double>> entries = new ArrayList<>(priser.entrySet());
         entries.sort(Comparator.comparing(Entry::getValue));
 
