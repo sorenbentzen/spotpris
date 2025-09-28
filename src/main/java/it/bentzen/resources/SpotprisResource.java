@@ -87,9 +87,13 @@ public class SpotprisResource {
         return result;
     }
 
-    @GET
+    @POST
     @Path("/laveste-sum/{heleTimer}")
-    public Entry<Double, List<String>> findLavestePrisSumAfNPriserMedTid(Map<String, Double> priser, @PathParam("heleTimer") int heleTimer) {
+    public Entry<Double, List<String>> findLavestePrisSumAfNPriserMedTid(Map<String, Double> priser, @PathParam("heleTimer") int heleTimer ) throws JsonProcessingException {
+        if (priser == null || data.isEmpty() || priser.isEmpty()) {
+            priser = getSpotprisData();
+        }
+
         List<Entry<String, Double>> entries = new ArrayList<>(priser.entrySet());
         entries.sort(Comparator.comparing(Entry::getValue));
 
